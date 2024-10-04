@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css - Styles globaux */
+@import 'primeng/resources/themes/lara-light-blue/theme.css'; /* Choisir un thème */
+@import 'primeng/resources/primeng.min.css'; /* Styles de PrimeNG */
+@import 'primeicons/primeicons.css'; /* Icônes de PrimeNG */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  overflow-y: scroll; /* Permet le défilement vertical */
+  scroll-behavior: smooth; /* Défilement fluide */
+}
+
+/* Styles pour les sections */
+.section {
+  scroll-snap-align: start; /* Alignement pour le défilement par sections */
+  height: 100vh; /* Chaque section occupe 100% de la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Permet de gérer les éléments enfants */
+}
+
+/* Styles pour l'effet de révélation */
+.reveal {
+  position: relative;
+  transform: translateY(150px); /* Déplace l'élément à gauche */
+  opacity: 0; /* Invisible par défaut */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Transition douce */
+}
+
+.reveal.active {
+  transform: translateY(0); /* Réinitialiser la position */
+  opacity: 1; /* Rendre visible */
+}
+
+/* Gradients pour les sections */
+.gradient1 {
+  background-image: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+}
+
+.gradient2 {
+  background-image: linear-gradient(to top, #0800ee 0%, #0800ee 100%);
+}
+
+.gradient3 {
+  background-image: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+}
+
+.gradient5 {
+  background-image: linear-gradient(to right, #0800ee 0%, #0800ee 100%);
+}
+
+.gradient4 {
+  background-image: linear-gradient(to top, #ffffff 0%, #ffffff 100%);
+}
+
+.gradient6 {
+  background-image: linear-gradient(to right, #0800ee 0%, #0800ee 100%);
+}
+
+/* Styles pour la responsivité */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .right img {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .skills {
+    width: 90%;
+  }
+
+  .contact-form {
+    width: 90%;
+  }
+}

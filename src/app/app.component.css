@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  overflow: hidden; /* Empêche le défilement de la barre de défilement du navigateur */
+}
+
+.section {
+  height: 100vh; /* Chaque section occupe 100% de la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal {
+  position: relative;
+  transform: translateX(-150px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.reveal.active {
+  transform: translateX(0);
+  opacity: 1;
+}
