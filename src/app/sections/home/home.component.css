@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 5%;
+}
+
+.left {
+  flex: 2;
+}
+
+.left h1 {
+  font-size: 3vw;
+  color: #1F1F46;
+}
+
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex: 2;
+}
+
+.right img {
+  width: 45%;
+  margin: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.right img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2);
+}

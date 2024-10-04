@@ -1,0 +1,17 @@
+.step-content {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2);
+}
+
+.step-content h3 {
+  color: #1F1F46;
+  margin-bottom: 1rem;
+}
+
+.step-content p {
+  color: #62627B;
+  line-height: 1.8;
+}

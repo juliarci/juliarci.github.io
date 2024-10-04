@@ -1,0 +1,20 @@
+<section class="section gradient3 reveal" id="formations">
+  <div class="animation">
+    <p-steps [model]="items" [(activeIndex)]="activeIndex"></p-steps>
+    <div class="step-content">
+      <div *ngIf="activeIndex === 0">
+        <h3>Licence Informatique</h3>
+        <p>Description de la Licence Informatique.</p>
+      </div>
+      <div *ngIf="activeIndex === 1">
+        <h3>Master Développement</h3>
+        <p>Description du Master Développement.</p>
+      </div>
+      <div *ngIf="activeIndex === 2">
+        <h3>Certification Angular</h3>
+        <p>Description de la Certification Angular.</p>
+      </div>
+      <!-- Ajoutez d'autres étapes ici -->
+    </div>
+  </div>
+</section>
