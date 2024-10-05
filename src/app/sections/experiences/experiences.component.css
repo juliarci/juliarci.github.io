@@ -1,24 +1,229 @@
-.experience-item {
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2);
-  text-align: center;
+/* Import des polices */
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+/* Styles de base */
+.container {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement le contenu */
+  position: relative;
+  padding-top: 60px; /* Ajoute de l'espace en haut pour le titre */
+  margin: 0 auto; /* Centre la container horizontalement */
 }
 
-.experience-item h3 {
-  color: #1F1F46;
-  margin-bottom: 1rem;
-}
-
-.experience-item p {
-  color: #62627B;
-  line-height: 1.8;
-}
-.animation {
-  display: flex; /* Assurez-vous que le carrousel s'affiche correctement */
-  justify-content: center;
+.section {
+  position: relative;
+  height: 100vh; /* Assure que la section occupe toute la hauteur de la fenêtre */
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
+.section-title {
+  display: inline-block;
+  position: absolute;
+  top: 70px; /* Positionné en haut */
+  left: 20px; /* Positionné à gauche */
+  font-size: 2em;
+  color: #403d40;
+  margin: 0; /* Supprime tout margin par défaut */
+}
 
+/* Styles pour le carrousel */
+.cards {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Limite la largeur pour centrer le carrousel */
+  height: 400px; /* Ajustez la hauteur selon vos besoins */
+  margin: 40px auto 20px auto; /* Centre horizontalement avec marge en haut */
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+  opacity: 0; /* Définit une opacité par défaut à 0 */
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Ajustements pour le player */
+.player {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px;
+  padding: 16px 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.upper-part {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  height: 55px;
+  overflow: hidden;
+}
+
+.play-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.song-info {
+  width: 100%;
+  cursor: pointer;
+  height: 36px;
+}
+
+.song-info .title {
+  color: #403d40;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sub-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.subtitle, .time {
+  font-size: 12px;
+  color: #403d40;
+}
+
+.time {
+  font-weight: 500;
+}
+
+.info-area {
+  width: 100%;
+  transition: transform 0.4s ease-in;
+  margin-top: 248px !important;
+}
+
+/* Styles pour le carrousel avec 8 cartes */
+input[type=radio] {
+  display: none;
+}
+
+#item-1:checked ~ .cards #song-6,
+#item-2:checked ~ .cards #song-1,
+#item-3:checked ~ .cards #song-2,
+#item-4:checked ~ .cards #song-3,
+#item-5:checked ~ .cards #song-4,
+#item-6:checked ~ .cards #song-5{
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-2,
+#item-2:checked ~ .cards #song-3,
+#item-3:checked ~ .cards #song-4,
+#item-4:checked ~ .cards #song-5,
+#item-5:checked ~ .cards #song-6,
+#item-6:checked ~ .cards #song-1 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-1,
+#item-2:checked ~ .cards #song-2,
+#item-3:checked ~ .cards #song-3,
+#item-4:checked ~ .cards #song-4,
+#item-5:checked ~ .cards #song-5,
+#item-6:checked ~ .cards #song-6{
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+.info-area {
+  transform: translateY(0);
+}
+
+/* Positionnez chaque chanson correctement */
+#item-1:checked ~ .player #info-area {
+  transform: translateY(0); /* Image 1 */
+}
+
+#item-2:checked ~ .player #info-area {
+  transform: translateY(-57px); /* Image 2 */
+}
+
+#item-3:checked ~ .player #info-area {
+  transform: translateY(-115px); /* Image 3 */
+}
+
+#item-4:checked ~ .player #info-area {
+  transform: translateY(-173px); /* Image 4 */
+}
+
+#item-5:checked ~ .player #info-area {
+  transform: translateY(-222px); /* Image 5 */
+}
+
+#item-6:checked ~ .player #info-area {
+  transform: translateY(-275px); /* Image 6 */
+}
+
+/* Styles Responsifs */
+@media (max-width: 768px) {
+  .cards {
+    height: 250px; /* Ajustez la hauteur pour les petits écrans */
+  }
+
+  .player {
+    max-width: 90%;
+    height: 112px;
+  }
+
+  .subtitle, .time {
+    font-size: 10px;
+    margin-top: 5px ;
+  }
+
+  .song-info .title {
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 1.5em;
+  }
+
+}
+mark {
+  animation: 5s highlight 1.5s 1 normal forwards;
+  background: linear-gradient(90deg, #ffffff 50%, rgba(255, 255, 255, 0) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+
+@keyframes highlight {
+  0% {
+    background-position: 100% 0;
+  }
+  30%, 70% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

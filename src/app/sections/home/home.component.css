@@ -1,36 +1,74 @@
 .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  padding: 0 5%;
+  justify-content: space-between; /* Espace entre les éléments à gauche et à droite */
+  align-items: center; /* Centrage vertical des éléments */
+  height: 100vh; /* Remplit toute la hauteur de la fenêtre */
+  padding: 0 5%; /* Ajoute des marges latérales */
 }
 
 .left {
-  flex: 2;
+  flex: 2; /* Prend 2/3 de l'espace disponible */
+  text-align: left; /* Alignement du texte à gauche */
+  padding-left: 5%; /* Espace entre le texte et le bord gauche */
 }
 
 .left h1 {
-  font-size: 3vw;
+  font-size: 8vw; /* Taille de police augmentée pour le prénom */
   color: #1F1F46;
 }
 
 .right {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  flex: 2;
+  flex-wrap: wrap; /* Permet aux images de se répartir sur plusieurs lignes */
+  justify-content: space-around; /* Aligne les images dans l'espace disponible */
+  flex: 2; /* Prend 2/3 de l'espace disponible */
+  padding-right: 5%; /* Espace entre les images et le bord droit */
 }
 
 .right img {
-  width: 45%;
-  margin: 5px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  width: 60%; /* Agrandit les images à 60% de la largeur du conteneur */
+  margin: 5px; /* Marge autour des images */
+  border-radius: 8px; /* Arrondit les coins des images */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre autour des images */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition douce pour l'effet au survol */
+}
+.color-box {
+  width: 200px; /* Ajuste la largeur selon tes besoins */
+  height: 200px; /* Ajuste la hauteur selon tes besoins */
+  background-color: rgb(135, 206, 250); /* Couleur bleu ciel */
+  display: inline-block; /* Pour les afficher côte à côte */
+  margin: 10px; /* Espacement entre les boîtes */
+  border-radius: 8px; /* Arrondit les coins des images */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre autour des images */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition douce pour l'effet au survol */
+}
+.right img:hover {
+  transform: translateY(-8px); /* Légère élévation des images au survol */
+  box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2); /* Ombre plus marquée au survol */
 }
 
-.right img:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2);
+/* Ajoutez ceci à votre CSS global ou à home.component.css */
+
+mark {
+  animation: 5s highlight 1.5s 1 normal forwards; /* Animation de surbrillance */
+  background: linear-gradient(90deg, #87cefa 50%, rgba(255, 255, 255, 0) 50%); /* Dégradé pour la surbrillance */
+  background-size: 200% 100%; /* Taille du fond de l'animation */
+  background-position: 100% 0; /* Position initiale de l'animation */
+}
+
+@keyframes highlight {
+  0% {
+    background-position: 100% 0; /* Début de l'animation */
+  }
+  30%, 70% {
+    background-position: 0 0; /* Position intermédiaire de l'animation */
+  }
+  100% {
+    background-position: -100% 0; /* Fin de l'animation */
+  }
+}
+
+/* Optionnel : pour un rendu homogène sur le texte */
+.left h1 {
+  display: inline-block; /* Pour appliquer correctement la transition */
 }

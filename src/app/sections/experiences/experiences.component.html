@@ -1,8 +1,38 @@
 <section class="section gradient2 reveal" id="experiences">
-  <div class="animation">
-    <div class="experience-item" *ngFor="let experience of experiences">
-      <h3>{{ experience.title }}</h3>
-      <p>{{ experience.description }}</p>
+  <h2 class="section-title"><mark>Mes Expériences</mark></h2>
+  <div class="container">
+    <!-- Inputs radio pour le slider -->
+    <ng-container *ngFor="let song of songs; let i = index">
+      <input type="radio" name="slider" [id]="'item-' + (i + 1)" [checked]="i === 0">
+    </ng-container>
+
+    <!-- Carrousel des images avec 8 cartes -->
+    <div class="cards">
+      <ng-container *ngFor="let song of songs; let i = index">
+        <label class="card" [for]="'item-' + (i + 1)" [id]="'song-' + (i + 1)">
+          <img [src]="song.image" [alt]="song.title">
+        </label>
+      </ng-container>
+    </div>
+
+    <!-- Player avec les informations et la barre de progression -->
+    <div class="player">
+      <div class="upper-part">
+        <div class="play-icon">
+          <!-- SVG Play Icon -->
+        </div>
+        <div class="info-area" id="info-area">
+          <ng-container *ngFor="let song of songs; let i = index">
+            <label class="song-info" [id]="'song-info-' + (i + 1)">
+              <div class="title">{{ song.title }}</div>
+              <div class="sub-line">
+                <div class="subtitle">{{ song.artist }}</div>
+                <div class="time">{{ song.time }}</div>
+              </div>
+            </label>
+          </ng-container>
+        </div>
+      </div>
     </div>
   </div>
 </section>
