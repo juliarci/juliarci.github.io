@@ -1,18 +1,68 @@
-.skills {
+.container {
+  margin: 50px auto;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.skills-grid {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  width: 80%;
-  margin: 0 auto;
+  justify-content: space-between;
 }
 
-.skill h4 {
-  color: #1F1F46;
-  margin-bottom: 0.5rem;
+.skills-column {
+  width: 48%; /* Chaque colonne prend 48% pour faire deux colonnes */
 }
 
-.p-progressbar {
-  height: 1.5rem;
-  border-radius: 4px;
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.progress2 {
+  padding: 6px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar2 {
+  height: 18px;
+  border-radius: 30px;
+  background-image:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  transition: width 2s ease-in-out, background-color 0.4s linear;
+  background-color: #ffffff; /* Couleur initiale blanche */
+  width: 0%; /* Barres vides au départ */
+}
+
+.progress-moved {
+  /* La couleur sera appliquée dynamiquement via le TypeScript */
+}
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 134px; /* Taille de police */
+    font-weight: bold; /* Gras */
+    margin-bottom: 60px; /* Espacement en bas */
+    text-align: center; /* Centrer le titre */
+    color: #333; /* Couleur du texte */
+  }
+}
+
+mark {
+  animation: 5s highlight 1.5s 1 normal forwards;
+  background: linear-gradient(90deg, #ffffff 50%, rgba(255, 255, 255, 0) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+
+@keyframes highlight {
+  0% {
+    background-position: 100% 0;
+  }
+  30%, 70% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }

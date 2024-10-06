@@ -1,34 +1,40 @@
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+/* Conteneur principal qui contient les deux cartes */
+.contact-container {
+  display: flex;
+  justify-content: space-between;  /* Les cartes seront alignées à gauche et à droite */
+  max-width: 1200px;  /* Largeur maximale du conteneur */
+  margin: 0 auto;  /* Centrer le conteneur sur la page */
+  gap: 2rem;  /* Espacement entre les deux cartes */
+}
+
+/* Style général pour les cartes (formulaire de contact et informations supplémentaires) */
+.contact-form, .extra-info {
+  flex: 1;  /* Les deux cartes occupent chacune 50% de la largeur */
   padding: 2rem;
   background: white;
   border-radius: 8px;
   box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2);
 }
 
+/* Style du formulaire de contact */
 .contact-form h2 {
   text-align: center;
   color: #1F1F46;
   margin-bottom: 1.5rem;
 }
 
-.form-group {
+label {
+  display: block;
   margin-bottom: 1rem;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #62627B;
-}
-
-.form-group input,
-.form-group textarea {
+input,
+textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -45,4 +51,49 @@ button {
 
 button:hover {
   background-color: #1F1F46;
+}
+
+/* Style pour la carte "Informations supplémentaires" */
+.extra-info h2 {
+  text-align: center;
+  color: #1F1F46;
+  margin-bottom: 1.5rem;
+}
+
+.extra-info p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Style du bouton de téléchargement */
+.extra-info a {
+  text-decoration: none;  /* Supprime la décoration par défaut (soulignement) */
+}
+
+.extra-info button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #8ec5fc;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.extra-info button:hover {
+  background-color: #1F1F46;
+}
+
+/* Responsive: Les deux cartes en colonne sur petits écrans */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;  /* Les cartes passent en colonne */
+    text-align: center;
+  }
+
+  .contact-form, .extra-info {
+    width: 100%;  /* Les cartes prennent toute la largeur */
+  }
 }

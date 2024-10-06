@@ -24,7 +24,8 @@ export class ExperiencesComponent implements OnInit, AfterViewInit {
       image: 'assets/images/NTNSNR-white-2023.jpg' },
     { title: 'Carrefour', artist: 'Emploi étudiant - Employée de rayon ', time: 'Avril - Août 2021 ',
       image: 'assets/images/carrefour-1.svg' },
-    { title: 'Ugitech', artist: 'Stage de 3ème', time: 'Janvier 2017', image: 'assets/images/UGITECH-PNG.png.webp' },
+    { title: 'Ugitech', artist: 'Stage de 3ème', time: 'Janvier 2017',
+      image: 'assets/images/UGITECH-PNG.png.webp' },
   ];
 
   constructor(private scrollService: ScrollService) {}

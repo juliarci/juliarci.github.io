@@ -17,20 +17,17 @@ import {ScrollService} from "../../shared/scroll.service";
 })
 export class ContactComponent implements AfterViewInit{
   contact = {
-    name: '',
     email: '',
     message: ''
   };
-
-  onSubmit() {
-    // Logique d'envoi du formulaire (à implémenter)
-    console.log('Formulaire soumis', this.contact);
-    // Réinitialiser le formulaire après soumission
-    this.contact = { name: '', email: '', message: '' };
-  }
   constructor(private scrollService: ScrollService) {}
 
   ngAfterViewInit() {
     this.scrollService.initScrollReveal();
+  }
+  onSubmit() {
+    console.log('Formulaire soumis', this.contact);
+    // Réinitialiser le formulaire après soumission
+    this.contact = { email: '', message: '' };
   }
 }

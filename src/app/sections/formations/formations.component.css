@@ -1,17 +1,248 @@
+:root {
+  --background-color: #FFFFFF;
+  --primary-color: #E66A53;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.08);
+  display: flex;
+}
+
+.steps {
+  width: 500px;
+  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.3);
+  background-color: #FFF;
+  padding: 24px 0;
+  position: relative;
+  margin: auto;
+  top: 10px;
+  border-radius: 8px; /* Arrondit les coins des images */
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 24px;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  left: calc(50px / 2);
+  z-index: 1;
+}
+
+.steps::after {
+  content: '';
+  position: absolute;
+  height: 13px;
+  width: 13px;
+  background-color: rgb(135, 206, 250);
+  box-shadow: 0px 0px 5px 0px rgb(135, 206, 250);
+  border-radius: 15px;
+  left: calc(50px / 2);
+  bottom: 24px;
+  transform: translateX(-45%);
+  z-index: 2;
+}
+
+.step {
+  padding: 0 20px 24px 50px;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  background-color: #FFF;
+  top: 10px;
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  height: 13px;
+  width: 13px;
+  background-color: rgb(198, 198, 198);
+  border-radius: 15px;
+  left: calc(50px / 2);
+  transform: translateX(-45%);
+  z-index: 2;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: rgb(198, 198, 198);
+  left: calc(50px / 2);
+  top: 0;
+  z-index: 1;
+}
+
+.step.minimized {
+  background-color: #FFF;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.header {
+  user-select: none;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+
+.subheader {
+  user-select: none;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .step-content {
-  margin-top: 2rem;
-  padding: 2rem;
-  background: white;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+.step.minimized > .step-content {
+  height: 0px;
+}
+
+.step-content.one {
+  height: 460px;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.step-content.two {
+  height: 460px;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.step-content.three {
+  height: 400px;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* Style pour l'image */
+.step-image {
+  width: 100%;
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 15px 25px -10px rgba(31, 31, 70, 0.2);
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.step-content h3 {
-  color: #1F1F46;
-  margin-bottom: 1rem;
+/* Remplacement du bouton "Suivant" par une flèche vers le bas, plus petite */
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;  /* Réduire la largeur de la flèche */
+  border-right: 10px solid transparent; /* Réduire la largeur de la flèche */
+  border-top: 15px solid #87cefa;       /* Réduire la hauteur de la flèche */
+  margin: 20px auto;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  transition: transform 0.3s ease;
 }
 
-.step-content p {
-  color: #62627B;
-  line-height: 1.8;
+/* Effet au survol pour la flèche */
+.arrow-down:hover {
+  transform: translateY(5px);
+}
+
+/* Animation de rebond pour la flèche */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Positionnement de la flèche */
+.step-content .arrow-down {
+  position: relative;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Positionnement de la flèche */
+.step-content .arrow-down {
+  position: relative;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Marges ajustées pour s'assurer que la flèche est visible */
+.step-content {
+  padding-bottom: 40px;
+}
+
+/* Style du bouton "Fermer" pour la dernière étape */
+.close-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn:hover {
+  background-color: rgb(135, 206, 250);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 20px;
+    font-size: 2.5em;
+    z-index: 10;
+  }
+}
+
+mark {
+  animation: 5s highlight 1.5s 1 normal forwards;
+  background: linear-gradient(90deg, #87cefa 50%, rgba(255, 255, 255, 0) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+
+@keyframes highlight {
+  0% {
+    background-position: 100% 0;
+  }
+  30%, 70% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+#formations {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
 }

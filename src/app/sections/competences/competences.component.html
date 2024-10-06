@@ -1,8 +1,28 @@
 <section class="section gradient5 reveal" id="competences">
-  <div class="skills">
-    <div class="skill" *ngFor="let skill of skills">
-      <h4>{{ skill.name }}</h4>
-      <p-progressBar [value]="skill.value"></p-progressBar>
+  <div class="container">
+    <!-- Titre au-dessus des colonnes -->
+    <h2 class="skills-title"><mark>Mes Compétences</mark></h2> <!-- Ajout du titre -->
+
+    <div class="skills-grid">
+      <!-- Première colonne -->
+      <div class="skills-column" id="first-column">
+        <div *ngFor="let skill of firstColumnSkills(); let i = index" class="skill-item">
+          <h4>{{ skill.name }}</h4>
+          <div class="progress2">
+            <div class="progress-bar2" #progressBar></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deuxième colonne -->
+      <div class="skills-column" id="second-column">
+        <div *ngFor="let skill of secondColumnSkills(); let i = index" class="skill-item">
+          <h4>{{ skill.name }}</h4>
+          <div class="progress2">
+            <div class="progress-bar2" #progressBar2></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

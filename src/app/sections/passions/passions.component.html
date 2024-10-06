@@ -1,8 +1,11 @@
 <section class="section gradient4 reveal" id="passions">
-  <div class="scrollable">
-    <img src="assets/images/passions/passion1.jpg" alt="Passion 1">
-    <img src="assets/images/passions/passion2.jpg" alt="Passion 2">
-    <img src="assets/images/passions/passion3.jpg" alt="Passion 3">
-    <!-- Ajoutez d'autres images de passions ici -->
+  <div class="gallery-container">
+    <h1>Mes activités</h1>
+    <div class="gallery">
+      <div class="photo-item" *ngFor="let photo of photos">
+        <img [src]="photo.url" [alt]="photo.title" />
+        <div class="photo-title">{{ photo.title }}</div>
+      </div>
+    </div>
   </div>
 </section>
